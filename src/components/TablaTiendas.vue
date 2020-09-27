@@ -42,9 +42,7 @@ export default {
         async getTiendas() {
             let datos = await axios.get(`http://localhost/treda/public/api/getTiendas`, {
                 headers: {
-                    "Cache-Control": "no-cache",
-                    "Accept": "/",
-                    "Connection": "keep-alive"
+                    "Content-Type": "multipart/form-data"
                 }
             });
             console.log(datos);
