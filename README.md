@@ -20,5 +20,7 @@ npm run serve
 
 ### Configuraciones adicionales
 
+para poder consumir la api, es necesario que los metodos de axios, apunten al dirección donde esta alojada la api en el servidor local
+
 Para mas información de VueJs puede acceder al siguiente link.
 See [Configuration Reference](https://cli.vuejs.org/config/).
