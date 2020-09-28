@@ -2,7 +2,23 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-6">
-            <b-table striped hover :items="items" :fields="fields"></b-table>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Fecha Apertura</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="tienda in tiendas">
+                        <td>{{ tienda.id }}</td>
+                        <td>{{ tienda.nombre }}</td>
+                        <td>{{ tienda.fecha_apertura }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -15,27 +31,8 @@ export default {
         return {
             // Note `isActive` is left out and will not appear in the rendered table
             fields: ['id', 'Nombre', 'Apertura'],
-            items: [{
-                    id: 40,
-                    Nombre: 'Dickerson',
-                    Apertura: '02-02-2020'
-                },
-                {
-                    id: 40,
-                    Nombre: 'Dickerson',
-                    Apertura: '02-02-2020'
-                },
-                {
-                    id: 40,
-                    Nombre: 'Dickerson',
-                    Apertura: '02-02-2020'
-                },
-                {
-                    id: 40,
-                    Nombre: 'Dickerson',
-                    Apertura: '02-02-2020'
-                }
-            ]
+            items: null,
+            tiendas: []
         }
     },
     methods: {
@@ -45,7 +42,9 @@ export default {
                     "Content-Type": "multipart/form-data"
                 }
             });
-            console.log(datos);
+            let tiendas = datos.data.data;
+            console.log(tiendas);
+            this.tiendas = tiendas;
         }
     },
     created() {
